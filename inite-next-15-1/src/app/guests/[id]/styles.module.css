@@ -1,0 +1,33 @@
+.block_wrap {
+    max-width: 1000px;
+    margin: auto;
+
+}
+
+.text_string_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.block {
+    margin: 100px auto
+}
+
+.image_block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.block img {
+    margin: auto;
+}
+
+.bold {
+    font-size: 30px;
+    font-weight: 600;
+    font-style: normal;
+}

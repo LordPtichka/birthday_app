@@ -1,0 +1,25 @@
+{
+  "GuestsData": [
+    {
+      "id": 1,
+      "fulName": "Журова Татьяна николаевна",
+      "email": "test@example.com",
+      "confirm": true,
+      "sentEmail": false,
+      "wishes": [
+        "Только после торжества",
+        "не ем рыбу",
+        "Виски/коньяк",
+        "Да"
+      ]
+    },
+    {
+      "id": 2,
+      "fulName": "Журова Татьяна николаевна",
+      "email": "test@example.com",
+      "confirm": true,
+      "sentEmail": false,
+      "wishes": []
+    }
+  ]
+}

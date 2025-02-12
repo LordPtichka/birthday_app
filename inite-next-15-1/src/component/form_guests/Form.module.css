@@ -1,0 +1,45 @@
+.for,
+.block {
+    margin: 50px auto;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.block button {
+    margin: auto;
+}
+
+.label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.option {
+
+    margin-bottom: 0.5rem;
+}
+
+.radio {
+    margin-right: 0.5rem;
+
+    appearance: none;
+    /* Убираем стандартный стиль */
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    /* Граница радио-кнопки */
+    border-radius: 50%;
+    /* Делаем круглую форму */
+    margin-right: 8px;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.radio:checked {
+    background: #000;
+    /* Подсветка при нажатии */
+}
