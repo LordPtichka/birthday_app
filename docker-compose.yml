@@ -1,4 +1,29 @@
 services:
+    json-server:
+
+        image: node
+        container_name: json-server
+        ports:
+            - "4000:4000"
+        working_dir: /app
+        volumes:
+            - ./json-server:/app
+        command: [ "json-server", "db.json", "--port", "4000" ]
+        expose:
+            - "4000"
+    nextjs:
+        image: node:16
+        container_name: nextjs-app
+        ports:
+            - "3000:3000"
+        working_dir: /app
+        volumes:
+            - ./inite-next-15-1:/app
+        environment:
+            - NODE_ENV=production
+        command: [ "yarn", "install" ]
+        expose:
+            - "3000"
     nginx:
         image: nginx:alpine
         container_name: nginx
