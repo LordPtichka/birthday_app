@@ -5,12 +5,24 @@ import styles from "./styles.module.css";
 import Form from "@/component/form_guests/Form";
 import { GuestsService } from "@/services/ServiceGuests";
 
+// import { usePathname, useRouter } from 'next/navigation'; 
+
 
 export default async function Guests({ params }) {
 
     const id = params.id;
     const initialData = await GuestsService.GetDataGuestsID(id);
     console.log(initialData);
+
+
+    // =====================================
+    // =====================================
+
+    // const router = useRouter();
+    // const pathname = usePathname();
+    // router.push('/another-page');
+    // =====================================
+    // =====================================
 
     return (
         <div>

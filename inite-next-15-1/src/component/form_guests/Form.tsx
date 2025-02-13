@@ -17,9 +17,6 @@ export default function Form({ id, initialData }: FormProps) {
     const [confirm, setConfirm] = useState(false)
     const [formVisible, setFormVisible] = useState(false)
 
-    // =====================================
-    // =====================================
-
     const confirmHandler = () => {
         setConfirm(true)
         setFormVisible(true)
@@ -39,6 +36,7 @@ export default function Form({ id, initialData }: FormProps) {
 
 
     return (
+
         <div>
             <div className={styles.block}>
                 <button onClick={confirmHandler}>Подтверждаю</button>
