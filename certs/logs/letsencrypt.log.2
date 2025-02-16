@@ -1,0 +1,144 @@
+2025-02-16 20:27:32,945:DEBUG:certbot._internal.main:certbot version: 3.2.0
+2025-02-16 20:27:32,946:DEBUG:certbot._internal.main:Location of certbot entry point: /usr/local/bin/certbot
+2025-02-16 20:27:32,946:DEBUG:certbot._internal.main:Arguments: ['--webroot', '--email', 'sysadmin@ibc-victoria.com', '--agree-tos', '--no-eff-email', '--webroot-path=/var/lib/letsencrypt', '-d', 'ibc-victoria.ru']
+2025-02-16 20:27:32,946:DEBUG:certbot._internal.main:Discovered plugins: PluginsRegistry(PluginEntryPoint#manual,PluginEntryPoint#null,PluginEntryPoint#standalone,PluginEntryPoint#webroot)
+2025-02-16 20:27:32,957:DEBUG:certbot._internal.log:Root logging level set at 30
+2025-02-16 20:27:32,957:DEBUG:certbot._internal.plugins.selection:Requested authenticator webroot and installer None
+2025-02-16 20:27:32,958:DEBUG:certbot._internal.plugins.selection:Single candidate plugin: * webroot
+Description: Saves the necessary validation files to a .well-known/acme-challenge/ directory within the nominated webroot path. A separate HTTP server must be running and serving files from the webroot path. HTTP challenge only (wildcards not supported).
+Interfaces: Authenticator, Plugin
+Entry point: EntryPoint(name='webroot', value='certbot._internal.plugins.webroot:Authenticator', group='certbot.plugins')
+Initialized: <certbot._internal.plugins.webroot.Authenticator object at 0x7090417ef3b0>
+Prep: True
+2025-02-16 20:27:32,958:DEBUG:certbot._internal.plugins.selection:Selected authenticator <certbot._internal.plugins.webroot.Authenticator object at 0x7090417ef3b0> and installer None
+2025-02-16 20:27:32,958:INFO:certbot._internal.plugins.selection:Plugins selected: Authenticator webroot, Installer None
+2025-02-16 20:27:32,998:DEBUG:certbot._internal.main:Picked account: <Account(RegistrationResource(body=Registration(key=None, contact=(), agreement=None, status=None, terms_of_service_agreed=None, only_return_existing=None, external_account_binding=None), uri='https://acme-v02.api.letsencrypt.org/acme/acct/2232619275', new_authzr_uri=None, terms_of_service=None), c6ff7ca1dac57f40dd0ec40a6ecce0c1, Meta(creation_dt=datetime.datetime(2025, 2, 16, 19, 25, 15, tzinfo=datetime.timezone.utc), creation_host='0b69fe2a988a', register_to_eff=None))>
+2025-02-16 20:27:32,998:DEBUG:acme.client:Sending GET request to https://acme-v02.api.letsencrypt.org/directory.
+2025-02-16 20:27:32,999:DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): acme-v02.api.letsencrypt.org:443
+2025-02-16 20:27:33,482:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "GET /directory HTTP/1.1" 200 828
+2025-02-16 20:27:33,484:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Sun, 16 Feb 2025 20:27:33 GMT
+Content-Type: application/json
+Content-Length: 828
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+{
+  "keyChange": "https://acme-v02.api.letsencrypt.org/acme/key-change",
+  "meta": {
+    "caaIdentities": [
+      "letsencrypt.org"
+    ],
+    "profiles": {
+      "classic": "The same profile you're accustomed to"
+    },
+    "termsOfService": "https://letsencrypt.org/documents/LE-SA-v1.4-April-3-2024.pdf",
+    "website": "https://letsencrypt.org"
+  },
+  "newAccount": "https://acme-v02.api.letsencrypt.org/acme/new-acct",
+  "newNonce": "https://acme-v02.api.letsencrypt.org/acme/new-nonce",
+  "newOrder": "https://acme-v02.api.letsencrypt.org/acme/new-order",
+  "renewalInfo": "https://acme-v02.api.letsencrypt.org/draft-ietf-acme-ari-03/renewalInfo",
+  "revokeCert": "https://acme-v02.api.letsencrypt.org/acme/revoke-cert",
+  "ynvxG0e_y08": "https://community.letsencrypt.org/t/adding-random-entries-to-the-directory/33417"
+}
+2025-02-16 20:27:33,485:DEBUG:certbot._internal.display.obj:Notifying user: Requesting a certificate for ibc-victoria.ru
+2025-02-16 20:27:33,488:DEBUG:acme.client:Requesting fresh nonce
+2025-02-16 20:27:33,488:DEBUG:acme.client:Sending HEAD request to https://acme-v02.api.letsencrypt.org/acme/new-nonce.
+2025-02-16 20:27:33,648:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "HEAD /acme/new-nonce HTTP/1.1" 200 0
+2025-02-16 20:27:33,649:DEBUG:acme.client:Received response:
+HTTP 200
+Server: nginx
+Date: Sun, 16 Feb 2025 20:27:33 GMT
+Connection: keep-alive
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index"
+Replay-Nonce: KDHPPURRDrn19T8p60_8qFSxQ40FmQd52O7Wx4Z6097hiwBJoUA
+X-Frame-Options: DENY
+Strict-Transport-Security: max-age=604800
+
+
+2025-02-16 20:27:33,650:DEBUG:acme.client:Storing nonce: KDHPPURRDrn19T8p60_8qFSxQ40FmQd52O7Wx4Z6097hiwBJoUA
+2025-02-16 20:27:33,651:DEBUG:acme.client:JWS payload:
+b'{\n  "identifiers": [\n    {\n      "type": "dns",\n      "value": "ibc-victoria.ru"\n    }\n  ]\n}'
+2025-02-16 20:27:33,657:DEBUG:acme.client:Sending POST request to https://acme-v02.api.letsencrypt.org/acme/new-order:
+{
+  "protected": "eyJhbGciOiAiUlMyNTYiLCAia2lkIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL2FjY3QvMjIzMjYxOTI3NSIsICJub25jZSI6ICJLREhQUFVSUkRybjE5VDhwNjBfOHFGU3hRNDBGbVFkNTJPN1d4NFo2MDk3aGl3QkpvVUEiLCAidXJsIjogImh0dHBzOi8vYWNtZS12MDIuYXBpLmxldHNlbmNyeXB0Lm9yZy9hY21lL25ldy1vcmRlciJ9",
+  "signature": "gtyYjAuNrvFX8Hpiv8jP364DG-xGJLET3S6bIdBcVFEIldp2-LQtNbnP0abWilzg2yG6gPAeCaXjwcW7oKVjuskbJEPqUgxEsaezIJSKFd0xI3pAfgmQqiMnpRY45LyuRfnczcoQ3xEM-7X7-6DzMhrGxjabzDRWxJ59kLIt_TYH_g8YAtepCis5tpG5Ax4CH8IZmJmVZW2MxZ70b9IXFW0dj-RBcKT5tPWwl2OIZNhf8ruugQEqYBFePABkPF_kBFwLi7kRKmRMvvyI_i11YcCbL-7Xbm5bCFLt2mvjwytN8yT03eYr--hfpHq2Qzhgu_dLuXl94R5ySnJ90Qd72A",
+  "payload": "ewogICJpZGVudGlmaWVycyI6IFsKICAgIHsKICAgICAgInR5cGUiOiAiZG5zIiwKICAgICAgInZhbHVlIjogImliYy12aWN0b3JpYS5ydSIKICAgIH0KICBdCn0"
+}
+2025-02-16 20:27:33,841:DEBUG:urllib3.connectionpool:https://acme-v02.api.letsencrypt.org:443 "POST /acme/new-order HTTP/1.1" 429 296
+2025-02-16 20:27:33,842:DEBUG:acme.client:Received response:
+HTTP 429
+Server: nginx
+Date: Sun, 16 Feb 2025 20:27:33 GMT
+Content-Type: application/problem+json
+Content-Length: 296
+Connection: keep-alive
+Boulder-Requester: 2232619275
+Cache-Control: public, max-age=0, no-cache
+Link: <https://acme-v02.api.letsencrypt.org/directory>;rel="index", <https://letsencrypt.org/docs/rate-limits>;rel="help"
+Replay-Nonce: wn-wObGJyUutsgpQeJa-jtKoyMbMwaTt2cFC-mY8bGFdyi8w2b4
+Retry-After: 81
+
+{
+  "type": "urn:ietf:params:acme:error:rateLimited",
+  "detail": "too many failed authorizations (5) for \"ibc-victoria.ru\" in the last 1h0m0s, retry after 2025-02-16 20:28:54 UTC: see https://letsencrypt.org/docs/rate-limits/#authorization-failures-per-hostname-per-account",
+  "status": 429
+}
+2025-02-16 20:27:33,843:DEBUG:certbot._internal.log:Exiting abnormally:
+Traceback (most recent call last):
+  File "/usr/local/bin/certbot", line 33, in <module>
+    sys.exit(load_entry_point('certbot', 'console_scripts', 'certbot')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/certbot/certbot/main.py", line 19, in main
+    return internal_main.main(cli_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 1871, in main
+    return config.func(config, plugins)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 1577, in certonly
+    lineage = _get_and_save_cert(le_client, config, domains, certname, lineage)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/certbot/certbot/_internal/main.py", line 142, in _get_and_save_cert
+    lineage = le_client.obtain_and_enroll_certificate(domains, certname)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/certbot/certbot/_internal/client.py", line 519, in obtain_and_enroll_certificate
+    cert, chain, key, _ = self.obtain_certificate(domains)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/certbot/certbot/_internal/client.py", line 429, in obtain_certificate
+    orderr = self._get_order_and_authorizations(csr.data, self.config.allow_subset_of_names)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/certbot/certbot/_internal/client.py", line 480, in _get_order_and_authorizations
+    orderr = self.acme.new_order(csr_pem)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/acme/acme/client.py", line 143, in new_order
+    response = self._post(self.directory['newOrder'], order)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/acme/acme/client.py", line 374, in _post
+    return self.net.post(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/acme/acme/client.py", line 747, in post
+    return self._post_once(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/acme/acme/client.py", line 760, in _post_once
+    response = self._check_response(response, content_type=content_type)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/certbot/src/acme/acme/client.py", line 611, in _check_response
+    raise messages.Error.from_json(jobj)
+acme.messages.Error: urn:ietf:params:acme:error:rateLimited :: There were too many requests of a given type :: too many failed authorizations (5) for "ibc-victoria.ru" in the last 1h0m0s, retry after 2025-02-16 20:28:54 UTC: see https://letsencrypt.org/docs/rate-limits/#authorization-failures-per-hostname-per-account
+2025-02-16 20:27:33,854:ERROR:certbot._internal.log:An unexpected error occurred:
+2025-02-16 20:27:33,854:ERROR:certbot._internal.log:too many failed authorizations (5) for "ibc-victoria.ru" in the last 1h0m0s, retry after 2025-02-16 20:28:54 UTC: see https://letsencrypt.org/docs/rate-limits/#authorization-failures-per-hostname-per-account
+2025-02-16 20:27:33,855:DEBUG:certbot.util:Exception occurred releasing lock: LockFile(/var/lib/letsencrypt/.certbot.lock) <released>
+Traceback (most recent call last):
+  File "/opt/certbot/src/certbot/certbot/util.py", line 241, in _release_locks
+    dir_lock.release()
+  File "/opt/certbot/src/certbot/certbot/_internal/lock.py", line 66, in release
+    self._lock_mechanism.release()
+  File "/opt/certbot/src/certbot/certbot/_internal/lock.py", line 172, in release
+    os.remove(self._path)
+FileNotFoundError: [Errno 2] No such file or directory: '/var/lib/letsencrypt/.certbot.lock'
