@@ -1,0 +1,28 @@
+/* styles.css */
+.timer {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.countdown-container {
+    text-align: center;
+    /* margin-top: 20px; */
+}
+
+.wrapTimer {
+    width: 80%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.timerElement {}
+
+@media(max-width: 610px) {
+
+    .wrapTimer {
+        width: 60%;
+    }
+}

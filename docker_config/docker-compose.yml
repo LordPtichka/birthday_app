@@ -18,6 +18,7 @@ services:
             - "3000:3000"
         volumes:
             - ../inite-next-15-1:/usr/app
+            - ../certs:/etc/letsencrypt # Директория для хранения сертификатов
         networks:
             - iviteWorks
     nginx:
@@ -25,8 +26,19 @@ services:
         container_name: nginx
         ports:
             - "80:80"
+            - "443:443"
         volumes:
             - ../nginx/default.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - iviteWorks
+
+    certbot:
+        image: certbot/certbot
+        container_name: certbot
+        volumes:
+            - ../certs:/etc/letsencrypt # Та же директория, что и для Nginx
+            - ../data:/var/lib/letsencrypt
+        entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
         networks:
             - iviteWorks
 

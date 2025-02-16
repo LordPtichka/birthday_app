@@ -1,4 +1,4 @@
-const link = `http://json-server:4000`
+const link = `http://194.190.98.98:4000`
 
 export const GuestsService = {
 

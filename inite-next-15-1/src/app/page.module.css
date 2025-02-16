@@ -161,8 +161,37 @@ a.secondary {
   }
 }
 
+
 @media (prefers-color-scheme: dark) {
   .logo {
     filter: invert();
   }
+}
+
+/* ================= */
+
+.image_block {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  width: 700px;
+
+}
+
+@media(max-width: 780px) {
+  .image_block {
+    width: 110%;
+    height: auto;
+  }
+}
+
+@media(max-width: 610px) {
+
+  .image_block {
+    width: 90%;
+    height: auto;
+  }
+
 }

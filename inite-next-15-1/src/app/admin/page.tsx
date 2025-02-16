@@ -7,6 +7,7 @@ import CopyBtn from '@/component/copy_btn/Copy_btn'
 export default async function Admin() {
 
     const data = await GuestsService.GetDataGuestsAll()
+    const link = `http://194.190.98.98:80`
 
 
 
@@ -37,7 +38,7 @@ export default async function Admin() {
                                 <div key={index}> - {wish}</div>
                             ))}
                         </div>
-                        <div> <CopyBtn linkData={`http://192.168.3.1:3001/guests/${guests.id}`} /> </div>
+                        <div> <CopyBtn linkData={`${link}/guests/${guests.id}`} /> </div>
                     </div>
                 )) : <div>Данные не загружены или произошла ошибка.</div>}
 

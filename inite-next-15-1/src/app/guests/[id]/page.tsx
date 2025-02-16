@@ -1,9 +1,10 @@
 import Image from "next/image";
-import image_1 from "../images/1.png"
-import image_2 from "../images/2.png"
+import image_1 from "../../images/1.png"
+import image_2 from "../../images/2.png"
 import styles from "./styles.module.css";
 import Form from "@/component/form_guests/Form";
 import { GuestsService } from "@/services/ServiceGuests";
+import Timer from "@/component/timer/Timer";
 
 // import { usePathname, useRouter } from 'next/navigation'; 
 
@@ -46,6 +47,10 @@ export default async function Guests({ params }) {
                     <div className={styles.text_string_center}>
                         <div>набережная 40-летия ВЛКСМ, 1, г. Выборг  <br /> РЕСТОРАН "МОНРЕПА"</div>
                     </div>
+                </div>
+
+                <div className={styles.block}>
+                    <Timer />
                 </div>
 
                 <div className={styles.block}>
